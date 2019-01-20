@@ -5,13 +5,15 @@ var Contact = mongoose.model('Contact', {
         type: String,
         require: true,
         minLength: 1,
-        trim: true
+        trim: true,
+        unique: true
     },
     number: {
         type: String,
         require: true,
         minLength: 1,
-        trim: true
+        trim: true,
+        unique: true
     }
 });
 

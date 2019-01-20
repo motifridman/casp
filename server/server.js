@@ -19,6 +19,14 @@ app.post('/contacts', (req, res) => {
         number: req.body.number
     });
 
+    // Contact.findOne({name: contact.name}).then((doc) =>
+    // {
+    //     throw new Error(`The name ${contact.name} is already exist`);
+    //     //res.status(404).send({error: `The name ${contact.name} is already exist`, doc})
+    // }, (doc) =>{
+    //     Contact.findOne({})
+    // })
+
     contact.save().then((doc) => {
         res.send(doc);
     }, (e) => {
