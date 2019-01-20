@@ -62,9 +62,9 @@ app.patch('/contacts/:name', (req, res) => {
 
 app.get('/status', (req, res) =>{
     res.send({
-        csq: Math.floor(Math.random() * 6) + 1,
-        reg: Boolean((Math.floor(Math.random() * 2) + 1)),
-        data: Boolean((Math.floor(Math.random() * 2) + 1)),
+        csq: Math.floor(Math.random() * 6),
+        reg: Boolean((Math.floor(Math.random() * 2))),
+        data: Boolean((Math.floor(Math.random() * 2)))
     })
 });
 
