@@ -4,9 +4,11 @@ const _ = require('lodash');
 const express = require('express');
 const bodyParser = require('body-parser');
 const { ObjectID } = require('mongodb');
+const modelsFill = require('./models/modelsFill');
 
 var { mongoose } = require('./db/mongoose');
 var { Contact } = require('./models/contact')
+
 
 var app = express();
 const port = process.env.PORT;
@@ -66,6 +68,10 @@ app.get('/status', (req, res) =>{
         reg: Boolean((Math.floor(Math.random() * 2))),
         data: Boolean((Math.floor(Math.random() * 2)))
     })
+});
+
+app.get('/users', (req, res) =>{
+  res.send(modelsFill.getUsers());
 });
 
 app.listen(port, () => {
