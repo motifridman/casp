@@ -10,7 +10,7 @@ var cors = require('cors');
 var app = express();
 const port = process.env.PORT;
 app.use(bodyParser.json());
-app.use(cors);
+app.use(cors());
 // app.use(function(req, res, next) {
 //   // res.bodyParser.json();
 //   res.header("Access-Control-Allow-Origin", "*");
