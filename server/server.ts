@@ -15,6 +15,13 @@ const port = process.env.PORT;
 
 app.use(bodyParser.json());
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
 app.post('/contacts', (req, res) => {
     var contact = new Contact({
         name: req.body.name,
@@ -72,6 +79,11 @@ app.get('/status', (req, res) =>{
 
 app.get('/users', (req, res) =>{
   res.send(modelsFill.getUsers());
+});
+
+app.get('/users/:name', (req, res) =>{
+    var name = req.params.name;
+    res.send(modelsFill.getUserByName(name));
 });
 
 app.listen(port, () => {

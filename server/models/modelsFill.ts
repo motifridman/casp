@@ -1,5 +1,4 @@
 import { User, Contact, VoiceCall, VoiceCallType, SMS, SMSType, Identity, Profile, UserType } from "./models";
-import * as moment from 'moment';
 
 export function getUsers() : User[]  {
   let contact1: Contact;
@@ -110,4 +109,9 @@ export function getUsers() : User[]  {
   }
 
   return [user1, user2];
+}
+
+export function getUserByName(name: string) : User {
+  let users = getUsers();
+  return users.find(user => user.name === name)
 }

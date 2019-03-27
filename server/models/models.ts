@@ -9,6 +9,7 @@ export interface User {
   profileList: Profile[]
 }
 
+
 export interface Profile {
   name: string,
   identitiesList: Identity[]
