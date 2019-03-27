@@ -94,7 +94,7 @@ export function getUsers() : User[]  {
 
   let user1: User;
   user1 = {
-    name: "User 1",
+    name: "User1",
     passward: "1234",
     profileList: [profile1, profile2],
     userType: UserType.standart
@@ -102,7 +102,7 @@ export function getUsers() : User[]  {
 
   let user2: User;
   user2 = {
-    name: "User 2",
+    name: "User2",
     passward: "5555",
     profileList: [profile1],
     userType: UserType.standart
