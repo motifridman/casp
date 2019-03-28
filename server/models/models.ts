@@ -12,6 +12,7 @@ export interface User {
 
 export interface Profile {
   name: string,
+  lastName: string,
   identitiesList: Identity[]
 }
 
