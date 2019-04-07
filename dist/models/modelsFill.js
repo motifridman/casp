@@ -108,7 +108,7 @@ function getUsers() {
         number: "85471256254954"
     };
     let contact9;
-    contact5 = {
+    contact9 = {
         name: "9Billy Bu",
         number: "098554321"
     };
@@ -164,28 +164,28 @@ function getUsers() {
         smsContact: contact5,
         smsType: models_1.SMSType.IncomingSMS,
         text: "Hi, How are you?",
-        time: Date.now() - 80085
+        time: Date.now() - 10000
     };
     let sms5;
     sms5 = {
-        smsContact: contact4,
-        smsType: models_1.SMSType.IncomingSMS,
+        smsContact: contact5,
+        smsType: models_1.SMSType.OutgoingSMS,
         text: "Hello world!\r\nNext line test",
-        time: Date.now() - 189000
+        time: Date.now() - 9000
     };
     let sms7;
     sms7 = {
-        smsContact: contact6,
-        smsType: models_1.SMSType.OutgoingSMS,
+        smsContact: contact5,
+        smsType: models_1.SMSType.IncomingSMS,
         text: "!Hello city",
-        time: Date.now() - 3910000
+        time: Date.now() - 8000
     };
     let sms8;
     sms8 = {
-        smsContact: contact4,
-        smsType: models_1.SMSType.IncomingSMS,
+        smsContact: contact5,
+        smsType: models_1.SMSType.OutgoingSMS,
         text: "Hello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line test",
-        time: Date.now() - 189000
+        time: Date.now() - 6000
     };
     let sms6;
     sms6 = {
@@ -198,7 +198,7 @@ function getUsers() {
     identity3 = {
         contactsList: [contact4, contact5, contact6, contact7, contact8, contact9, contact10],
         name: "Thired identity",
-        smsList: [sms4, sms5, sms6, sms7, sms8],
+        smsList: [sms4, sms5, sms7, sms8],
         voiceCallsList: [voiceCall4, voiceCall5, voiceCall6, voiceCall7, voiceCall8, voiceCall9, voiceCall10]
     };
     let identity4;
