@@ -216,6 +216,70 @@ export function getUsers() : User[]  {
     time: Date.now() - 6000
   };
 
+  let sms9 : SMS;
+  sms9 = {
+    smsContact: contact5,
+    smsType: SMSType.IncomingSMS,
+    text: "Hi, How are you?",
+    time: Date.now() - 5000
+  };
+
+  let sms10 : SMS;
+  sms10 = {
+    smsContact: contact5,
+    smsType: SMSType.OutgoingSMS,
+    text: "Hello world!\r\nNext line test",
+    time: Date.now() - 4500
+  };
+
+  let sms11 : SMS;
+  sms11 = {
+    smsContact: contact5,
+    smsType: SMSType.IncomingSMS,
+    text: "!Hello city",
+    time: Date.now() - 4000
+  };
+
+  let sms12 : SMS;
+  sms12 = {
+    smsContact: contact5,
+    smsType: SMSType.OutgoingSMS,
+    text: "Hello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line test",
+    time: Date.now() - 3500
+  };
+
+  let sms13 : SMS;
+  sms13 = {
+    smsContact: contact5,
+    smsType: SMSType.IncomingSMS,
+    text: "Hi, How are you?",
+    time: Date.now() - 3000
+  };
+
+  let sms14 : SMS;
+  sms14 = {
+    smsContact: contact5,
+    smsType: SMSType.OutgoingSMS,
+    text: "Hello world!\r\nNext line test",
+    time: Date.now() - 2000
+  };
+
+  let sms15 : SMS;
+  sms15 = {
+    smsContact: contact5,
+    smsType: SMSType.IncomingSMS,
+    text: "!Hello city",
+    time: Date.now() - 1000
+  };
+
+  let sms16 : SMS;
+  sms16 = {
+    smsContact: contact5,
+    smsType: SMSType.OutgoingSMS,
+    text: "Hello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line test",
+    time: Date.now()
+  };
+
   let sms6 : SMS;
   sms6 = {
     smsContact: contact6,
@@ -228,7 +292,7 @@ export function getUsers() : User[]  {
   identity3 = {
     contactsList: [contact4, contact5, contact6, contact7, contact8, contact9, contact10],
     name: "Thired identity",
-    smsList : [sms4, sms5, sms7, sms8],
+    smsList : [sms4, sms5, sms7, sms8, sms9, sms10, sms11, sms12, sms13, sms14, sms15, sms16],
     voiceCallsList: [voiceCall4, voiceCall5, voiceCall6, voiceCall7, voiceCall8, voiceCall9, voiceCall10]
   };
 

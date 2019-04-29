@@ -187,6 +187,62 @@ function getUsers() {
         text: "Hello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line test",
         time: Date.now() - 6000
     };
+    let sms9;
+    sms9 = {
+        smsContact: contact5,
+        smsType: models_1.SMSType.IncomingSMS,
+        text: "Hi, How are you?",
+        time: Date.now() - 5000
+    };
+    let sms10;
+    sms10 = {
+        smsContact: contact5,
+        smsType: models_1.SMSType.OutgoingSMS,
+        text: "Hello world!\r\nNext line test",
+        time: Date.now() - 4500
+    };
+    let sms11;
+    sms11 = {
+        smsContact: contact5,
+        smsType: models_1.SMSType.IncomingSMS,
+        text: "!Hello city",
+        time: Date.now() - 4000
+    };
+    let sms12;
+    sms12 = {
+        smsContact: contact5,
+        smsType: models_1.SMSType.OutgoingSMS,
+        text: "Hello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line test",
+        time: Date.now() - 3500
+    };
+    let sms13;
+    sms13 = {
+        smsContact: contact5,
+        smsType: models_1.SMSType.IncomingSMS,
+        text: "Hi, How are you?",
+        time: Date.now() - 3000
+    };
+    let sms14;
+    sms14 = {
+        smsContact: contact5,
+        smsType: models_1.SMSType.OutgoingSMS,
+        text: "Hello world!\r\nNext line test",
+        time: Date.now() - 2000
+    };
+    let sms15;
+    sms15 = {
+        smsContact: contact5,
+        smsType: models_1.SMSType.IncomingSMS,
+        text: "!Hello city",
+        time: Date.now() - 1000
+    };
+    let sms16;
+    sms16 = {
+        smsContact: contact5,
+        smsType: models_1.SMSType.OutgoingSMS,
+        text: "Hello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line testHello world!\r\nNext line test",
+        time: Date.now()
+    };
     let sms6;
     sms6 = {
         smsContact: contact6,
@@ -198,7 +254,7 @@ function getUsers() {
     identity3 = {
         contactsList: [contact4, contact5, contact6, contact7, contact8, contact9, contact10],
         name: "Thired identity",
-        smsList: [sms4, sms5, sms7, sms8],
+        smsList: [sms4, sms5, sms7, sms8, sms9, sms10, sms11, sms12, sms13, sms14, sms15, sms16],
         voiceCallsList: [voiceCall4, voiceCall5, voiceCall6, voiceCall7, voiceCall8, voiceCall9, voiceCall10]
     };
     let identity4;
