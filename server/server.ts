@@ -1,19 +1,25 @@
 require('./config/config');
-
+const path = require('path');
 const _ = require('lodash');
 const express = require('express');
 const bodyParser = require('body-parser');
 const { ObjectID } = require('mongodb');
 const modelsFill = require('./models/modelsFill');
+const socketIO = require('socket.io');
+const http = require('http');
 
 var { mongoose } = require('./db/mongoose');
 var { Contact } = require('./models/contact');
 var cors = require('cors');
 
 
-
+const publicPath = path.join(__dirname, '../public');
 var app = express();
 const port = process.env.PORT;
+var server = http.createServer(app);
+var io = socketIO(server);
+
+app.use(express.static(publicPath));
 
 app.use(bodyParser.json());
 
@@ -27,6 +33,9 @@ app.use(cors());
 //   next();
 // });
 
+io.on('connection', (socket) => {
+  console.log('New User Connected');
+});
 
 app.post('/contacts', (req, res) => {
     var contact = new Contact({
@@ -80,7 +89,7 @@ app.get('/status', (req, res) =>{
         csq: Math.floor(Math.random() * 6),
         reg: Boolean((Math.floor(Math.random() * 2))),
         data: Boolean((Math.floor(Math.random() * 2)))
-    })
+    });
 });
 
 app.get('/users', (req, res) =>{
@@ -93,7 +102,7 @@ app.get('/users/:name', (req, res) =>{
 });
 
 app.listen(port, () => {
-    console.log(`Started up at port ${port}`)
+    console.log(`Started up at port ${port}`);
 });
 
 module.exports = { app };

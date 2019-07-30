@@ -1,14 +1,21 @@
 require('./config/config');
+const path = require('path');
 const _ = require('lodash');
 const express = require('express');
 const bodyParser = require('body-parser');
 const { ObjectID } = require('mongodb');
 const modelsFill = require('./models/modelsFill');
+const socketIO = require('socket.io');
+const http = require('http');
 var { mongoose } = require('./db/mongoose');
 var { Contact } = require('./models/contact');
 var cors = require('cors');
+const publicPath = path.join(__dirname, '../public');
 var app = express();
 const port = process.env.PORT;
+var server = http.createServer(app);
+var io = socketIO(server);
+app.use(express.static(publicPath));
 app.use(bodyParser.json());
 app.use(cors());
 // app.use(function(req, res, next) {
@@ -17,6 +24,9 @@ app.use(cors());
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //   next();
 // });
+io.on('connection', (socket) => {
+    console.log('New User Connected');
+});
 app.post('/contacts', (req, res) => {
     var contact = new Contact({
         name: req.body.name,
