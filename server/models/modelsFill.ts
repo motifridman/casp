@@ -189,7 +189,7 @@ export function getUsers() : User[]  {
     smsContact: contact5,
     smsType: SMSType.IncomingSMS,
     text: "Hi, How are you?",
-    time: new Date(2018, 12, 7, 23, 9, 1, 0).valueOf()
+    time: new Date(2018, 11, 7, 23, 9, 1, 0).valueOf()
   };
 
   let sms5 : SMS;
@@ -197,7 +197,7 @@ export function getUsers() : User[]  {
     smsContact: contact5,
     smsType: SMSType.OutgoingSMS,
     text: "Hello world!\r\nNext line test",
-    time: new Date(2019, 6, 23, 18, 36, 22, 9).valueOf()
+    time: new Date(2019, 5, 23, 18, 36, 22, 9).valueOf()
   };
 
   let sms7 : SMS;
@@ -205,7 +205,7 @@ export function getUsers() : User[]  {
     smsContact: contact5,
     smsType: SMSType.IncomingSMS,
     text: "!Hello city",
-    time: new Date(2019, 6, 24, 7, 22, 54, 19).valueOf()
+    time: new Date(2019, 5, 24, 7, 22, 54, 19).valueOf()
   };
 
   let sms8 : SMS;
