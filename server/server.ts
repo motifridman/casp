@@ -37,6 +37,10 @@ io.on('connection', (socket) => {
   console.log('New User Connected');
 });
 
+app.get('/', (req, res) => {
+  res.sendfile(path.join(publicPath, 'index.html'));
+});
+
 app.post('/contacts', (req, res) => {
     var contact = new Contact({
         name: req.body.name,
@@ -101,7 +105,7 @@ app.get('/users/:name', (req, res) =>{
     res.send(modelsFill.getUserByName(name));
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Started up at port ${port}`);
 });
 
