@@ -19,8 +19,8 @@ var io = socketIO(server);
 app.use(express.static(publicPath));
 app.use(bodyParser.json());
 app.use(cors());
-var statusTimer;
-var statusFunction = function () {
+let statusTimer;
+let statusFunction = function () {
     io.emit('newStatus', {
         csq: Math.floor(Math.random() * 6),
         reg: Boolean((Math.floor(Math.random() * 2))),
@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
     });
 });
 app.get('/', (req, res) => {
-    res.sendfile(path.join(publicPath, 'index.html'));
+    res.sendFile(path.join(publicPath, 'index.html'));
 });
 app.post('/contacts', (req, res) => {
     var contact = new Contact({

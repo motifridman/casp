@@ -14,5 +14,5 @@ socket.on('newStatus', function (status) {
 
 let stopButton = jQuery('#stop-status');
   stopButton.on('click', function () {
-    socket.emit('stopStatus');
+      socket.emit('stopStatus');
 });
