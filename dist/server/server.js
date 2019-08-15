@@ -10,6 +10,7 @@ const http = require('http');
 var { mongoose } = require('./db/mongoose');
 var { Contact } = require('./models/contact');
 var cors = require('cors');
+// var statusTimer;
 const publicPath = path.join(__dirname, '../public');
 var app = express();
 const port = process.env.PORT;
@@ -18,6 +19,14 @@ var io = socketIO(server);
 app.use(express.static(publicPath));
 app.use(bodyParser.json());
 app.use(cors());
+var statusTimer;
+var statusFunction = function () {
+    io.emit('newStatus', {
+        csq: Math.floor(Math.random() * 6),
+        reg: Boolean((Math.floor(Math.random() * 2))),
+        data: Boolean((Math.floor(Math.random() * 2)))
+    });
+};
 // app.use(function(req, res, next) {
 //   // res.bodyParser.json();
 //   res.header("Access-Control-Allow-Origin", "*");
@@ -25,7 +34,11 @@ app.use(cors());
 //   next();
 // });
 io.on('connection', (socket) => {
+    statusTimer = setInterval(statusFunction, 5000);
     console.log('New User Connected');
+    socket.on('stopStatus', (params, callback) => {
+        clearInterval(statusTimer);
+    });
 });
 app.get('/', (req, res) => {
     res.sendfile(path.join(publicPath, 'index.html'));
@@ -88,3 +101,4 @@ server.listen(port, () => {
     console.log(`Started up at port ${port}`);
 });
 module.exports = { app };
+//# sourceMappingURL=server.js.map

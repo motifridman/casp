@@ -11,7 +11,7 @@ const http = require('http');
 var { mongoose } = require('./db/mongoose');
 var { Contact } = require('./models/contact');
 var cors = require('cors');
-
+// var statusTimer;
 
 const publicPath = path.join(__dirname, '../public');
 var app = express();
@@ -25,6 +25,14 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
+var statusTimer:NodeJS.Timeout;
+var statusFunction = function () { 
+  io.emit('newStatus', {
+    csq: Math.floor(Math.random() * 6),
+    reg: Boolean((Math.floor(Math.random() * 2))),
+    data: Boolean((Math.floor(Math.random() * 2)))
+  });
+}
 
 // app.use(function(req, res, next) {
 //   // res.bodyParser.json();
@@ -34,7 +42,12 @@ app.use(cors());
 // });
 
 io.on('connection', (socket) => {
+  statusTimer = setInterval(statusFunction, 5000);
   console.log('New User Connected');
+
+  socket.on('stopStatus', (params, callback) => {
+    clearInterval(statusTimer);
+  });
 });
 
 app.get('/', (req, res) => {
@@ -104,6 +117,8 @@ app.get('/users/:name', (req, res) =>{
     var name = req.params.name;
     res.send(modelsFill.getUserByName(name));
 });
+
+
 
 server.listen(port, () => {
     console.log(`Started up at port ${port}`);
