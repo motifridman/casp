@@ -42,7 +42,7 @@ let statusFunction = function () {
 // });
 
 io.on('connection', (socket) => {
-  statusTimer = setInterval(statusFunction, 5000);
+  statusTimer = setInterval(statusFunction, 5001);
   console.log('New User Connected');
 
   socket.on('stopStatus', (params, callback) => {
